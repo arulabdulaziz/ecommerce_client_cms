@@ -39,6 +39,15 @@ export default {
       email: '',
       password: ''
     }
+  },
+  methods: {
+    login () {
+      const obj = {
+        email: this.email,
+        password: this.password
+      },
+      this.$store.dispatch('login', obj)
+    }
   }
 }
 </script>

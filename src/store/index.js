@@ -7,9 +7,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     title: 'e-commerce CMS',
-    author: 'Arul Abdul Aziz'
+    author: 'Arul Abdul Aziz',
+    list: []
   },
   mutations: {
+    setList (state, payload) {
+      state.list = payload
+    }
   },
   actions: {
     login (context, obj) {
@@ -29,6 +33,18 @@ export default new Vuex.Store({
       })
       .catch(err => {
         swal("Error", `${error}`);
+      })
+    },
+    fetchList () {
+      axios({
+        method: 'GET',
+        url: '/product'
+      })
+      .then(({data}) => {
+        context.commit('setList', data)
+      })
+      .catch(err => {
+        console.log(err);
       })
     }
   },
