@@ -20,7 +20,7 @@
                   </div>
                 </form>
                  <!-- <GoogleLogin :params="params" :renderParams="renderParams" :onSuccess="onSuccess" :onFailure="onFailure"></GoogleLogin> -->
-                <button id="btn-register" class="btn btn-link" @click="registerPage">Don't Have Account? Let's Register</button>
+                <!-- <button id="btn-register" class="btn btn-link" @click="registerPage">Don't Have Account? Let's Register</button> -->
                 <!-- form!!!-->
               </div>
             </div>

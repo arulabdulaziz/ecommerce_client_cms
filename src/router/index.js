@@ -3,17 +3,23 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import NotFound from '../views/NotFound.vue'
+import MainPage from '../views/MainPage.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'Main Page',
+    component: MainPage,
     children: [
       {
-        path: '/list',
+        path: 'home',
+        name: 'Home',
+        component: Home
+      },
+      {
+        path: 'list',
         name: 'List Items',
         // import component list
       }
