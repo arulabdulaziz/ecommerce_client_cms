@@ -1,7 +1,7 @@
 <template>
     <div class="col-md" id="card-list">
         <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="...">
+            <img src="" class="card-img-top" :alt="product.name">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.stock}}</p>

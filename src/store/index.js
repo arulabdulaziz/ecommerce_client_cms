@@ -35,10 +35,13 @@ export default new Vuex.Store({
         swal("Error", `${error}`);
       })
     },
-    fetchList () {
+    fetchList (context) {
       axios({
         method: 'GET',
-        url: '/product'
+        url: '/product',
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
       })
       .then(({data}) => {
         context.commit('setList', data)
