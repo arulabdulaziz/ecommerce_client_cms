@@ -9,10 +9,10 @@
 
 import Navbar from '../components/Navbar'
 export default {
-    name: 'Main Page',
-    components: {
-        Navbar
-    }
+  name: 'Main Page',
+  components: {
+    Navbar
+  }
 }
 </script>
 
