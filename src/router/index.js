@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import NotFound from '../views/NotFound.vue'
 import MainPage from '../views/MainPage.vue'
+import List from '../views/List.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,7 @@ const routes = [
       {
         path: 'list',
         name: 'List',
-        // import component list
+        component: List
       }
     ]
   },

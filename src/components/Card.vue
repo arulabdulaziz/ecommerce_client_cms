@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.stock}}</p>
-                <h5 class="card-text">{{convertMoney()}}</h5> 
+                <h5 class="card-text">{{convertMoney()}}</h5>
                 <!-- <form action="/list/:id" method="post">
                 <input type="number" placeholder="masukkan jumlah yang akan anda beli" min="1" name="itemQty">
                 <button type="submit" class="btn btn-primary" onclick="return confirm(`Anda yakin dengan pilihannya? Klik Ok untuk mengirimkan detail pembayaran lewat email`)">Beli</button>
@@ -17,15 +17,15 @@
 
 <script>
 export default {
-    props: ['product'],
-    methods: {
-        convertMoney () {
-            let	reverse = this.product.price.toString().split('').reverse().join(''),
-            thousand 	= reverse.match(/\d{1,3}/g);
-            thousand	= thousand.join('.').split('').reverse().join('');
-            return `Rp.${thousand},-`
-        }
+  props: ['product'],
+  methods: {
+    convertMoney () {
+      let thousand = this.product.price.toString().split('').reverse().join('')
+      thousand = thousand.match(/\d{1,3}/g)
+      thousand = thousand.join('.').split('').reverse().join('')
+      return `Rp.${thousand},-`
     }
+  }
 }
 </script>
 

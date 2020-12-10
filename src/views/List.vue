@@ -11,17 +11,17 @@
 <script>
 import Card from '../components/Card.vue'
 export default {
-    data () {
-        return {
-            listProduct: this.$store.state.list
-        }
-    },
-    components: {
-        Card
-    },
-    created () {
-        this.$store.dispatch('fetchList')
+  data () {
+    return {
+      listProduct: this.$store.state.list
     }
+  },
+  components: {
+    Card
+  },
+  created () {
+    this.$store.dispatch('fetchList')
+  }
 }
 </script>
 
