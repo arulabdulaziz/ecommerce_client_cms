@@ -2,7 +2,7 @@
     <div id="navbar">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="https://blog.jejualan.com/wp-content/uploads/2014/11/1000-member-berbayar-bergabung-bersama-jejualan_20131129120559.jpg" alt="" width="15%"></a>
+                <img class="navbar-brand" src="https://blog.jejualan.com/wp-content/uploads/2014/11/1000-member-berbayar-bergabung-bersama-jejualan_20131129120559.jpg" alt="" width="10%">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,17 +33,21 @@
 
 <script>
 export default {
-    methods: {
-        logout () {
-            localStorage.clear()
-            this.$router.push('/login')
-        }
+  methods: {
+    logout () {
+      localStorage.clear()
+      this.$router.push('/login')
     }
+  }
 }
 </script>
 
 <style>
     #navbar{
         margin-bottom: 100px;
+    }
+    .navbar .container .navbar-brand{
+        display: flex;
+        align-self: flex-start;
     }
 </style>

@@ -4,11 +4,23 @@
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
     </div>
-    <!-- <router-view/> -->
+    <router-view/>
+    <footer id="footer">
+      <center> {{ author }} ~ copyright &#169; 2020 Powered by {{ powered }} </center>
+    </footer>
   </div>
 </template>
 <script >
-
+export default {
+  computed: {
+    author () {
+      return this.$store.state.author
+    },
+    powered () {
+      return this.$store.state.powered
+    }
+  }
+}
 </script>
 <style>
 #app {
@@ -30,5 +42,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+#footer {
+  margin-top: 100px;
 }
 </style>

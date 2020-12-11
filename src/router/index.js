@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import NotFound from '../views/NotFound.vue'
 import MainPage from '../views/MainPage.vue'
 import List from '../views/List.vue'
+import AddProduct from '../views/AddProduct.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
         path: 'list',
         name: 'List',
         component: List
+      },
+      {
+        path: 'add',
+        name: 'Add Product',
+        component: AddProduct
       }
     ]
   },
@@ -52,11 +58,11 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.access_token
-  if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
-  else if (to.name === 'Login' && isAuthenticated) next({ name: 'Home' })
-  else next()
-})
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = localStorage.access_token
+//   if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+//   else if (to.name === 'Login' && isAuthenticated) next({ name: 'Home' })
+//   else next()
+// })
 
 export default router

@@ -9,7 +9,7 @@
 
 import Navbar from '../components/Navbar'
 export default {
-  name: 'Main Page',
+  name: 'MainPage',
   components: {
     Navbar
   }
