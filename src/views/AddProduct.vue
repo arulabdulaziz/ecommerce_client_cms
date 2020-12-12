@@ -4,7 +4,7 @@
         <form @submit.prevent="addProduct">
             <div class="form-group">
                 <label for="name">Product's Name</label>
-                <input type="text" v-model="name" class="form-control" aria-describedby="emailHelp" placeholder="Enter Full Name" name="name">
+                <input type="text" v-model="name" class="form-control" aria-describedby="emailHelp" placeholder="Enter Product's Name" name="name">
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
