@@ -37,7 +37,7 @@
 </template>
 
 <script>
-// import $ from 'jquery'
+import $ from 'jquery'
 export default {
   name: 'Modal',
   props: ['product'],
@@ -59,10 +59,10 @@ export default {
         image_url: this.image_url
       }
       this.$store.dispatch('editProduct', obj)
-      //   $('#form-' + this.product.id).modal('hide')
-      //   this.$refs['#form-' + this.product.id].hide()
+      $('#form-' + this.product.id).modal('hide')
+      this.$bvModal['form-' + this.product.id].hide()
+      this.$bvModal.hide('#form-' + this.product.id)
       this.modalShow = false
-    //   this.$router.push('/home')
     }
   }
 }

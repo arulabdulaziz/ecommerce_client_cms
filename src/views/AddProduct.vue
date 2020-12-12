@@ -1,6 +1,6 @@
 <template>
-    <div class="container" style="margin-top: 10%;" id="register-page">
-        <center><h1>Register</h1></center>
+    <div class="container" style="margin-top: 10%;" id="add-page">
+        <center><h1>Add Product</h1></center>
         <form @submit.prevent="addProduct">
             <div class="form-group">
                 <label for="name">Product's Name</label>
@@ -51,6 +51,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    h1{
+        font-family: fantasy;
+    }
 </style>

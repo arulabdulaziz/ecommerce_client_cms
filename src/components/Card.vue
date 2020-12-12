@@ -10,9 +10,9 @@
                 <input type="number" placeholder="masukkan jumlah yang akan anda beli" min="1" name="itemQty">
                 <button type="submit" class="btn btn-primary" onclick="return confirm(`Anda yakin dengan pilihannya? Klik Ok untuk mengirimkan detail pembayaran lewat email`)">Beli</button>
                 </form> -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="'#form-'+product.id">Edit</button>
-                <!-- <button class="btn btn-primary" id="btn-edit" @click="editProduct">Edit</button> -->
-                <button class="btn btn-danger" id="btn-delete" @click="deleteProduct">Delete</button>
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="'#form-'+product.id">Edit</button> -->
+                <button class="btn btn-primary" id="btn-detail" @click="editProductPage">More</button>
+                <!-- <button class="btn btn-danger" id="btn-delete" @click="deleteProduct">Delete</button> -->
             </div>
         </div>
         <Modal :product="product"/>
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import swal from 'sweetalert'
 import Modal from './Modal.vue'
 export default {
   name: 'CardProduct',
@@ -45,30 +44,17 @@ export default {
       thousand = thousand.join('.').split('').reverse().join('')
       return `Rp.${thousand},-`
     },
-    deleteProduct () {
-      swal({
-        title: 'Are you Sure?',
-        text: 'You will delted this product permanently',
-        icon: 'warning',
-        buttons: true,
-        dangerMode: true
-      })
-        .then(willDelete => {
-          if (willDelete) {
-            this.$store.dispatch('deleteProduct', this.product.id)
-            this.$router.push('/list')
-          } else {
-            swal('Your Product is save!')
-          }
-        })
+    editProductPage () {
+      const id = this.product.id
+      this.$router.push(`/list/${id}`)
     }
   }
 }
 </script>
 
 <style scoped>
-  #btn-delete{
-    margin-left: 10px;
+  #btn-detail{
+    width: 100%;
   }
   button:hover{
     background-color: darkgrey;
@@ -79,5 +65,8 @@ export default {
   }
   .card{
     margin-bottom: 20px;
+  }
+  button:active{
+    margin-top: 10px;
   }
 </style>

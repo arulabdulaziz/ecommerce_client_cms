@@ -11,11 +11,15 @@ export default new Vuex.Store({
     author: 'Arul Abdul Aziz',
     copyright: '2020',
     powered: 'Seggoo',
-    list: []
+    list: [],
+    detail: {}
   },
   mutations: {
     setList (state, payload) {
       state.list = payload
+    },
+    setDetail (state, payload) {
+      state.detail = payload
     }
   },
   actions: {
@@ -112,9 +116,26 @@ export default new Vuex.Store({
             icon: 'success'
           })
           context.dispatch('fetchList')
+          router.push('/list')
         })
         .catch(err => {
           swal('Error', `${err.response.data}`)
+        })
+    },
+    getById (context, id) {
+      axios({
+        method: 'GET',
+        url: '/product/' + id,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
+      })
+        .then(value => {
+          console.log(value.data, '<<<<<<<<<<<<<<<')
+          context.commit('setDetail', value.data)
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   },

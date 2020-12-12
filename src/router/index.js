@@ -6,6 +6,7 @@ import NotFound from '../views/NotFound.vue'
 import MainPage from '../views/MainPage.vue'
 import List from '../views/List.vue'
 import AddProduct from '../views/AddProduct.vue'
+import Detail from '../views/Detail.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const routes = [
         path: 'add',
         name: 'Add Product',
         component: AddProduct
+      },
+      {
+        path: 'list/:id',
+        name: 'Detail',
+        component: Detail
       }
     ]
   },

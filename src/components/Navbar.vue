@@ -19,8 +19,6 @@
                             More
                         </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a href="/about" class="dropdown-item">About</a>
-                        <a class="dropdown-item" href="/user">User</a>
                         <a href="/add" class="dropdown-item">Add Product</a>
                         <a class="dropdown-item" @click="logout">Log Out</a>
                     </div>
@@ -58,7 +56,7 @@ export default {
 
 <style>
     #navbar{
-        margin-bottom: 100px;
+        margin-bottom: 70px;
     }
     .navbar .container .navbar-brand{
         display: flex;
