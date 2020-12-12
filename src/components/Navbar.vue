@@ -20,7 +20,7 @@
                         </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a href="/add" class="dropdown-item">Add Product</a>
-                        <a class="dropdown-item" @click="logout">Log Out</a>
+                        <a class="dropdown-item" @click="logout" id="logout">Log Out</a>
                     </div>
                     </li>
                 </ul>
@@ -61,5 +61,8 @@ export default {
     .navbar .container .navbar-brand{
         display: flex;
         align-self: flex-start;
+    }
+    #logout{
+        cursor: pointer;
     }
 </style>
