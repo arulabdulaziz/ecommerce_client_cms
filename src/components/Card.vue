@@ -10,17 +10,34 @@
                 <input type="number" placeholder="masukkan jumlah yang akan anda beli" min="1" name="itemQty">
                 <button type="submit" class="btn btn-primary" onclick="return confirm(`Anda yakin dengan pilihannya? Klik Ok untuk mengirimkan detail pembayaran lewat email`)">Beli</button>
                 </form> -->
-                <button class="btn btn-primary" id="btn-edit" @click="editProduct">Edit</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Edit</button>
+                <!-- <button class="btn btn-primary" id="btn-edit" @click="editProduct">Edit</button> -->
                 <button class="btn btn-danger" id="btn-delete" @click="deleteProduct">Delete</button>
             </div>
         </div>
+        <Modal/>
     </div>
 </template>
 
 <script>
 import swal from 'sweetalert'
+import Modal from './Modal.vue'
 export default {
+  name: 'CardProduct',
   props: ['product'],
+  components: {
+    Modal
+  },
+  data () {
+    return {
+      productEdit: {
+        name: this.product.name,
+        stock: this.product.stock,
+        price: this.product.price,
+        image_url: this.product.image_url
+      }
+    }
+  },
   methods: {
     convertMoney () {
       let thousand = this.product.price.toString().split('').reverse().join('')
@@ -53,8 +70,8 @@ export default {
 </script>
 
 <style scoped>
-  #btn-edit{
-    margin-right: 10px;
+  #btn-delete{
+    margin-left: 10px;
   }
   button:hover{
     background-color: darkgrey;

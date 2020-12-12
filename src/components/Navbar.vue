@@ -9,7 +9,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/list">List Barang</a>
@@ -33,11 +33,24 @@
 </template>
 
 <script>
+import swal from 'sweetalert'
 export default {
   methods: {
     logout () {
-      localStorage.clear()
-      this.$router.push('/login')
+      swal({
+        title: 'Logout?',
+        icon: 'info',
+        text: 'Are you sure want to logout?',
+        buttons: true,
+        dangerMode: true
+      })
+        .then(value => {
+          if (value) {
+            localStorage.clear()
+            this.$router.push('/login')
+            swal('Logout Success', { icon: 'success' })
+          }
+        })
     }
   }
 }
