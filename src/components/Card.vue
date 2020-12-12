@@ -10,12 +10,12 @@
                 <input type="number" placeholder="masukkan jumlah yang akan anda beli" min="1" name="itemQty">
                 <button type="submit" class="btn btn-primary" onclick="return confirm(`Anda yakin dengan pilihannya? Klik Ok untuk mengirimkan detail pembayaran lewat email`)">Beli</button>
                 </form> -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Edit</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="'#form-'+product.id">Edit</button>
                 <!-- <button class="btn btn-primary" id="btn-edit" @click="editProduct">Edit</button> -->
                 <button class="btn btn-danger" id="btn-delete" @click="deleteProduct">Delete</button>
             </div>
         </div>
-        <Modal/>
+        <Modal :product="product"/>
     </div>
 </template>
 
@@ -61,9 +61,6 @@ export default {
             swal('Your Product is save!')
           }
         })
-    },
-    editProduct () {
-      console.log(this.product.id, '<<<<<<<<< id')
     }
   }
 }

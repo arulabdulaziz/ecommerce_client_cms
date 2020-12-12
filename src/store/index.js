@@ -94,6 +94,28 @@ export default new Vuex.Store({
         .catch(err => {
           swal('Error', `${err.response.data}`)
         })
+    },
+    editProduct (context, obj) {
+      console.log(obj, '<<<<<<<<<< dari vuex')
+      axios({
+        method: 'PUT',
+        url: '/product/' + obj.id,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        },
+        data: obj
+      })
+        .then(value => {
+          swal({
+            text: 'Product has benn updated',
+            title: 'Yeay',
+            icon: 'success'
+          })
+          context.dispatch('fetchList')
+        })
+        .catch(err => {
+          swal('Error', `${err.response.data}`)
+        })
     }
   },
   modules: {
