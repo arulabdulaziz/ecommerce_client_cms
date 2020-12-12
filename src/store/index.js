@@ -64,10 +64,35 @@ export default new Vuex.Store({
       })
         .then(value => {
           console.log(value)
+          swal({
+            text: 'Product has beed added',
+            title: 'Yeay',
+            icon: 'success'
+          })
           router.push('/list')
         })
         .catch(err => {
-          swal('Error', `${err}`)
+          swal('Error', `${err.response.data}`)
+        })
+    },
+    deleteProduct (context, id) {
+      axios({
+        method: 'DELETE',
+        url: '/product/' + id,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
+      })
+        .then(value => {
+          swal({
+            text: 'Product has beed deleted',
+            title: 'Yeay',
+            icon: 'success'
+          })
+          context.dispatch('fetchList')
+        })
+        .catch(err => {
+          swal('Error', `${err.response.data}`)
         })
     }
   },
