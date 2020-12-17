@@ -44,7 +44,8 @@ export default {
     login () {
       const obj = {
         email: this.email,
-        password: this.password
+        password: this.password,
+        role: 'admin'
       }
       this.$store.dispatch('login', obj)
     }

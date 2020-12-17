@@ -12,15 +12,15 @@
                         <a class="nav-link" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/list">List Barang</a>
+                        <router-link class="nav-link" to="/list">List Barang</router-link>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             More
                         </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a href="/add" class="dropdown-item">Add Product</a>
-                        <a class="dropdown-item" @click="logout" id="logout">Log Out</a>
+                        <router-link to="/add" class="dropdown-item">Add Product</router-link>
+                        <p class="dropdown-item" @click="logout" id="logout">Log Out</p>
                     </div>
                     </li>
                 </ul>
